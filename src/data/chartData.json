@@ -1,0 +1,812 @@
+{
+  "category": [
+    {
+      "name": "科室"
+    },
+    {
+      "name": "交付物"
+    },
+    {
+      "name": "参与人员"
+    }
+  ],
+  "nodes": [
+    {
+      "category": 0,
+      "symbolSize": 30,
+      "name": "科室1",
+      "value": 2
+    },
+    {
+      "category": 0,
+      "symbolSize": 30,
+      "name": "科室2",
+      "value": 3
+    },
+    {
+      "category": 0,
+      "symbolSize": 30,
+      "name": "科室3",
+      "value": 4
+    },
+    {
+      "category": 0,
+      "symbolSize": 30,
+      "name": "科室4",
+      "value": 5
+    },
+    {
+      "category": 0,
+      "symbolSize": 30,
+      "name": "科室5",
+      "value": 6
+    },
+    {
+      "category": 0,
+      "symbolSize": 30,
+      "name": "科室6",
+      "value": 7
+    },
+    {
+      "category": 0,
+      "symbolSize": 30,
+      "name": "科室7",
+      "value": 8
+    },
+    {
+      "category": 0,
+      "symbolSize": 30,
+      "name": "科室8",
+      "value": 9
+    },
+    {
+      "category": 0,
+      "symbolSize": 30,
+      "name": "科室9",
+      "value": 10
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "核反应堆",
+      "value": 11
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "反应池",
+      "value": 12
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "铀元素",
+      "value": 13
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "辐射系数",
+      "value": 14
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "放射性元素",
+      "value": 15
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "轨道电子",
+      "value": 16
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "质量亏损",
+      "value": 17
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "结合能",
+      "value": 18
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "动能",
+      "value": 19
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "势能",
+      "value": 20
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "电磁辐射",
+      "value": 21
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "库仑力",
+      "value": 22
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "带电粒子",
+      "value": 23
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "热导率，传热系数",
+      "value": 24
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "中子俘获截面",
+      "value": 25
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "高温气冷堆",
+      "value": 26
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "自持的链式反应",
+      "value": 27
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "弹性散射碰撞",
+      "value": 28
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "热中子利用系数",
+      "value": 29
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "快中子增殖反应堆",
+      "value": 30
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "贫铀",
+      "value": 31
+    },
+    {
+      "category": 1,
+      "symbolSize": 20,
+      "name": "压水反应堆",
+      "value": 32
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "景天",
+      "value": 33
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "雪见",
+      "value": 34
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "徐长卿",
+      "value": 35
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "龙葵",
+      "value": 36
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "南宫煌",
+      "value": 37
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "王蓬絮",
+      "value": 38
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "温慧",
+      "value": 39
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "雷元戈",
+      "value": 40
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "星璇",
+      "value": 41
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "云天河",
+      "value": 42
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "柳梦璃",
+      "value": 43
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "韩菱纱",
+      "value": 44
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "慕容紫英",
+      "value": 45
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "百里屠苏",
+      "value": 46
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "风晴雪",
+      "value": 47
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "襄铃",
+      "value": 48
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "方兰生",
+      "value": 49
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "尹千觞",
+      "value": 50
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "红玉",
+      "value": 51
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "陆小凤",
+      "value": 52
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "西门吹雪",
+      "value": 53
+    },
+    {
+      "category": 2,
+      "symbolSize": 20,
+      "name": "花满楼",
+      "value": 54
+    },
+    {
+      "category": 0,
+      "symbolSize": 30,
+      "name": "项目开始",
+      "value": 55,
+      "label":{
+        "color":"black "
+      },
+      "itemStyle":{
+        "normal":{
+          "color": "white",
+          "borderColor":"black",
+          "borderWidth":3
+        }
+      }
+    },
+    {
+      "category": 0,
+      "symbolSize": 30,
+      "name": "项目结束",
+      "value": 54,
+      "label":{
+        "color":"#a7a6a6"
+      },
+      "itemStyle":{
+        "normal":{
+          "color": "#a7a6a6"
+        }
+      }
+    }
+  ],
+  "links": [
+    {
+      "target": "科室1",
+      "source": "项目开始",
+      "lineStyle":{
+        "normal":{
+          "color":"red"
+        }
+      }
+    },
+    {
+      "target": "项目结束",
+      "source": "科室9"
+    },
+    {
+      "target": "科室2",
+      "source": "科室1",
+      "lineStyle":{
+        "normal":{
+          "color":"red"
+        }
+      }
+    },
+    {
+      "target": "科室3",
+      "source": "科室2"
+    },
+    {
+      "target": "科室4",
+      "source": "科室3"
+    },
+    {
+      "target": "科室5",
+      "source": "科室4"
+    },
+    {
+      "target": "科室6",
+      "source": "科室5"
+    },
+    {
+      "target": "科室7",
+      "source": "科室6"
+    },
+    {
+      "target": "科室8",
+      "source": "科室7"
+    },
+    {
+      "target": "科室9",
+      "source": "科室8"
+    },
+    {
+      "target": "核反应堆",
+      "source": "科室1",
+      "lineStyle":{
+        "normal":{
+          "color":"red"
+        }
+      }
+    },
+    {
+      "target": "反应池",
+      "source": "科室1",
+      "lineStyle":{
+        "normal":{
+          "color":"red"
+        }
+      }
+    },
+    {
+      "target": "铀元素",
+      "source": "科室1",
+      "lineStyle":{
+        "normal":{
+          "color":"red"
+        }
+      }
+    },
+    {
+      "target": "辐射系数",
+      "source": "科室2"
+    },
+    {
+      "target": "放射性元素",
+      "source": "科室2"
+    },
+    {
+      "target": "轨道电子",
+      "source": "科室2"
+    },
+    {
+      "target": "质量亏损",
+      "source": "科室2"
+    },
+    {
+      "target": "结合能",
+      "source": "科室3"
+    },
+    {
+      "target": "动能",
+      "source": "科室4"
+    },
+    {
+      "target": "势能",
+      "source": "科室4"
+    },
+    {
+      "target": "电磁辐射",
+      "source": "科室4"
+    },
+    {
+      "target": "库仑力",
+      "source": "科室4"
+    },
+    {
+      "target": "带电粒子",
+      "source": "科室4"
+    },
+    {
+      "target": "热导率，传热系数",
+      "source": "科室4"
+    },
+    {
+      "target": "中子俘获截面",
+      "source": "科室5"
+    },
+    {
+      "target": "高温气冷堆",
+      "source": "科室5"
+    },
+    {
+      "target": "自持的链式反应",
+      "source": "科室5"
+    },
+    {
+      "target": "弹性散射碰撞",
+      "source": "科室6"
+    },
+    {
+      "target": "热中子利用系数",
+      "source": "科室6"
+    },
+    {
+      "target": "快中子增殖反应堆",
+      "source": "科室6"
+    },
+    {
+      "target": "贫铀",
+      "source": "科室7"
+    },
+    {
+      "target": "压水反应堆",
+      "source": "科室7"
+    },
+    {
+      "target": "辐射系数",
+      "source": "核反应堆"
+    },
+    {
+      "target": "放射性元素",
+      "source": "核反应堆"
+    },
+    {
+      "target": "轨道电子",
+      "source": "反应池"
+    },
+    {
+      "target": "质量亏损",
+      "source": "铀元素"
+    },
+    {
+      "target": "结合能",
+      "source": "辐射系数"
+    },
+    {
+      "target": "动能",
+      "source": "放射性元素"
+    },
+    {
+      "target": "势能",
+      "source": "轨道电子"
+    },
+    {
+      "target": "电磁辐射",
+      "source": "质量亏损"
+    },
+    {
+      "target": "库仑力",
+      "source": "质量亏损"
+    },
+    {
+      "target": "带电粒子",
+      "source": "质量亏损"
+    },
+    {
+      "target": "热导率，传热系数",
+      "source": "质量亏损"
+    },
+    {
+      "target": "中子俘获截面",
+      "source": "质量亏损"
+    },
+    {
+      "target": "高温气冷堆",
+      "source": "质量亏损"
+    },
+    {
+      "target": "自持的链式反应",
+      "source": "带电粒子"
+    },{
+      "target": "自持的链式反应",
+      "source": "热导率，传热系数"
+    },{
+      "target": "自持的链式反应",
+      "source": "中子俘获截面"
+    },
+    {
+      "target": "弹性散射碰撞",
+      "source": "势能"
+    },
+    {
+      "target": "热中子利用系数",
+      "source": "质量亏损"
+    },
+    {
+      "target": "快中子增殖反应堆",
+      "source": "弹性散射碰撞"
+    },
+    {
+      "target": "贫铀",
+      "source": "自持的链式反应"
+    }, {
+      "target": "贫铀",
+      "source": "弹性散射碰撞"
+    }, {
+      "target": "贫铀",
+      "source": "弹性散射碰撞"
+    }, {
+      "target": "贫铀",
+      "source": "热中子利用系数"
+    }, {
+      "target": "贫铀",
+      "source": "快中子增殖反应堆"
+    },
+    {
+      "target": "压水反应堆",
+      "source": "自持的链式反应"
+    },{
+      "target": "压水反应堆",
+      "source": "贫铀"
+    },{
+      "target": "压水反应堆",
+      "source": "快中子增殖反应堆"
+    },{
+      "target": "压水反应堆",
+      "source": "贫铀"
+    },{
+      "target": "压水反应堆",
+      "source": "轨道电子"
+    },
+    {
+      "target": "核反应堆",
+      "source": "景天"
+    },
+    {
+      "target": "反应池",
+      "source": "雪见"
+    },
+    {
+      "target": "铀元素",
+      "source": "徐长卿"
+    },
+    {
+      "target": "辐射系数",
+      "source": "龙葵"
+    },
+    {
+      "target": "放射性元素",
+      "source": "南宫煌"
+    },
+    {
+      "target": "轨道电子",
+      "source": "王蓬絮"
+    },
+    {
+      "target": "质量亏损",
+      "source": "温慧"
+    },
+    {
+      "target": "结合能",
+      "source": "雷元戈"
+    },
+    {
+      "target": "动能",
+      "source": "星璇"
+    },
+    {
+      "target": "势能",
+      "source": "云天河"
+    },
+    {
+      "target": "电磁辐射",
+      "source": "柳梦璃"
+    },
+    {
+      "target": "库仑力",
+      "source": "韩菱纱"
+    },
+    {
+      "target": "带电粒子",
+      "source": "慕容紫英"
+    },
+    {
+      "target": "热导率，传热系数",
+      "source": "百里屠苏"
+    },
+    {
+      "target": "中子俘获截面",
+      "source": "风晴雪"
+    },
+    {
+      "target": "高温气冷堆",
+      "source": "襄铃"
+    },
+    {
+      "target": "自持的链式反应",
+      "source": "方兰生"
+    },
+    {
+      "target": "弹性散射碰撞",
+      "source": "尹千觞"
+    },
+    {
+      "target": "热中子利用系数",
+      "source": "红玉"
+    },
+    {
+      "target": "快中子增殖反应堆",
+      "source": "陆小凤"
+    },
+    {
+      "target": "贫铀",
+      "source": "西门吹雪"
+    },
+    {
+      "target": "压水反应堆",
+      "source": "花满楼"
+    },
+    {
+      "source": "科室1",
+      "target": "景天"
+    },
+    {
+      "source": "科室1",
+      "target": "雪见"
+    },
+    {
+      "source": "科室1",
+      "target": "徐长卿"
+    },
+    {
+      "source": "科室2",
+      "target": "龙葵"
+    },
+    {
+      "source": "科室2",
+      "target": "南宫煌"
+    },
+    {
+      "source": "科室2",
+      "target": "王蓬絮"
+    },
+    {
+      "source": "科室1",
+      "target": "科室3"
+    },
+    {
+      "source": "科室2",
+      "target": "科室6"
+    },
+    {
+      "source": "科室4",
+      "target": "科室1"
+    },
+    {
+      "source": "科室2",
+      "target": "温慧"
+    },
+    {
+      "source": "科室3",
+      "target": "雷元戈"
+    },
+    {
+      "source": "科室4",
+      "target": "星璇"
+    },
+    {
+      "source": "科室4",
+      "target": "云天河"
+    },
+    {
+      "source": "科室4",
+      "target": "柳梦璃"
+    },
+    {
+      "source": "科室4",
+      "target": "韩菱纱"
+    },
+    {
+      "source": "科室4",
+      "target": "慕容紫英"
+    },
+    {
+      "source": "科室5",
+      "target": "百里屠苏"
+    },
+    {
+      "source": "科室5",
+      "target": "风晴雪"
+    },
+    {
+      "source": "科室5",
+      "target": "襄铃"
+    },
+    {
+      "source": "科室6",
+      "target": "方兰生"
+    },
+    {
+      "source": "科室6",
+      "target": "尹千觞"
+    },
+    {
+      "source": "科室6",
+      "target": "红玉"
+    },
+    {
+      "source": "科室6",
+      "target": "陆小凤"
+    },
+    {
+      "source": "科室7",
+      "target": "西门吹雪"
+    },
+    {
+      "source": "科室7",
+      "target": "花满楼"
+    }
+  ]
+}

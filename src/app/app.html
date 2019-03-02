@@ -1,0 +1,22 @@
+<!-- navbar -->
+<div data-ng-include="'app/blocks/header.html'" class="app-header navbar">
+</div>
+<!-- / navbar -->
+<!-- menu -->
+<div data-ng-include="'app/blocks/menu.html'" class="app-aside hidden-xs {{app.settings.asideColor}}">
+</div>
+<!-- / menu -->
+<div>
+</div>
+<!-- content -->
+<div class="app-content">
+    <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside"></a>
+    <div class="app-content-body" ui-view></div>
+</div>
+<!-- /content -->
+<!-- footer -->
+<div data-ng-include="'app/blocks/footer.html'" class="app-footer wrapper b-t bg-light">
+</div>
+<!-- / footer -->
+<div data-ng-include="'app/blocks/settings.html'" class="settings panel panel-default">
+</div>

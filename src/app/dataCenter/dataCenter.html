@@ -1,0 +1,739 @@
+<div ng-controller="dataCenterCtrl" ng-init="app.setTitle('数据中心')">
+    <div class="padder m-t-xs">
+        <uib-tabset class="tab-container m-b-none">
+            <uib-tab>
+                <uib-tab-heading>
+                    <i class="glyphicon glyphicon-user"></i> 个人数据
+                </uib-tab-heading>
+                <div style="height: {{(app.clientHeight-110)+'px'}};">
+                    <div class="m-b">
+                        <div class="btn-group">
+                            <button class="btn btn-default"><i
+                                    class="fa fa-cloud-upload"></i> 上传
+                            </button>
+                            <!--<button class="btn btn-default"><i-->
+                            <!--class="fa fa-building-o"></i> 全选-->
+                            <!--</button>-->
+                        </div>
+                        <div class="pull-right m-l-xs">
+                            <button class="btn btn-default" type="button" ng-click="listMode = !listMode"><i
+                                    ng-if="!listMode" class="fa fa-th-list"></i><i ng-if="listMode"
+                                                                                   class="fa fa-th"></i></button>
+                        </div>
+                        <div class="pull-right m-l-xs w">
+                            <div class="input-group">
+                                <input type="text" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                  </span>
+                            </div>
+                        </div>
+                        <div class="pull-right m-l-xs">
+                            <div class="dropdown">
+                                <button class="btn btn-default" data-toggle="dropdown" aria-expanded="true">全部 <span
+                                        class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="">全部</a></li>
+                                    <li><a href="">word文档</a></li>
+                                    <li><a href="">excel文档</a></li>
+                                    <li><a href="">pdf文档</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="">自定义类型</a></li>
+                                    <li><a href="">自定义类型</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pull-right m-l-xs">
+                            <div class="radio">
+                                <label class="i-checks">
+                                    <input type="radio" name="a" value="option1">
+                                    <i></i>
+                                    按时间排序
+                                </label>
+                            </div>
+                        </div>
+                        <div class="pull-right m-l-xs">
+                            <div class="radio">
+                                <label class="i-checks">
+                                    <input type="radio" name="a" value="option1">
+                                    <i></i>
+                                    按文件大小排序
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="!listMode">
+                        <div class="dataContentFile text-primary" style="margin-bottom: 0">
+                            <div class="dataContentIcon"><i class="fa fa-file-excel-o fa-4x"></i></div>
+                            <div class="dataContentName">Excel文件</div>
+                            <div class="dataOperation">
+                                <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-info-circle"></i></a>
+                                      <div class="dropdown-menu bg-white w-xl">
+                                          <div class="info">
+                                               <p>名称：Excel文件</p>
+                                                <p>大小：10M</p>
+                                                <p>修改时间：2018-11-11 11:11:11</p>
+                                                <p>创建时间：2018-11-11 11:11:11</p>
+                                                <p>版本号：5</p>
+                                          </div>
+                                      </div>
+                                </span>
+                                <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></a>
+                                      <ul class="dropdown-menu bg-white">
+                                            <li><a href="">打开</a></li>
+                                            <li><a href="">内容转换</a></li>
+                                            <li><a href="">执行</a></li>
+                                            <li><a href="">历史版本</a></li>
+                                      </ul>
+                                </span>
+                                <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-cogs"></i></a>
+                                      <ul class="dropdown-menu bg-white">
+                                            <li><a href="">移动</a></li>
+                                            <li><a href="">复制</a></li>
+                                            <li><a href="">重命名</a></li>
+                                            <li><a href="">关联设置</a></li>
+                                            <li><a href="">类别设置</a></li>
+                                            <li><a href="">密级设置</a></li>
+                                            <li><a href="">共享文件</a></li>
+                                      </ul>
+                                </span>
+                                <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-trash"></i></a>
+                                      <div class="dropdown-menu bg-white w">
+                                          <div class="remove btn-groups">
+                                              <span>确定删除？ </span>
+                                              <button class="btn btn-primary btn-sm">删除</button>
+                                              <button class="btn btn-default btn-sm">取消</button>
+                                          </div>
+                                      </div>
+                                </span>
+                                <a><i class="fa fa-star-o"></i></a>
+                            </div>
+                        </div>
+                        <div class="dataContentFile">
+                            <div class="dataContentIcon"><i class="fa fa-file-word-o fa-4x"></i></div>
+                            <div class="dataContentName">Word文档</div>
+                        </div>
+                        <div class="dataContentFile">
+                            <div class="dataContentIcon"><i class="fa fa-file-pdf-o fa-4x"></i></div>
+                            <div class="dataContentName">PDF文档</div>
+                        </div>
+                        <div class="dataContentFile">
+                            <div class="dataContentIcon"><i class="fa fa-file-code-o fa-4x"></i></div>
+                            <div class="dataContentName">脚本文件</div>
+                        </div>
+                        <div class="dataContentFile">
+                            <div class="dataContentIcon"><i class="fa fa-file-image-o fa-4x"></i></div>
+                            <div class="dataContentName">图片</div>
+                        </div>
+                        <div class="dataContentFile">
+                            <div class="dataContentIcon"><i class="fa fa-file-audio-o fa-4x"></i></div>
+                            <div class="dataContentName">音频</div>
+                        </div>
+                        <div class="dataContentFile">
+                            <div class="dataContentIcon"><i class="fa fa-file-video-o fa-4x"></i></div>
+                            <div class="dataContentName">视频</div>
+                        </div>
+                        <div class="dataContentFile">
+                            <div class="dataContentIcon"><i class="fa fa-file-powerpoint-o fa-4x"></i></div>
+                            <div class="dataContentName">PPT文件</div>
+                        </div>
+                        <div class="dataContentFile">
+                            <div class="dataContentIcon"><i class="fa  fa-file-text-o fa-4x"></i></div>
+                            <div class="dataContentName">一般文件</div>
+                        </div>
+                        <div class="dataContentFile">
+                            <div class="dataContentIcon"><i class="fa fa-file-archive-o fa-4x"></i></div>
+                            <div class="dataContentName">压缩文件</div>
+                        </div>
+                        <div class="dataContentFile">
+                            <div class="dataContentIcon"><i class="fa fa-folder-o fa-4x"></i></div>
+                            <div class="dataContentName">文件夹</div>
+                        </div>
+                        <div class="dataContentFile">
+                            <div class="dataContentIcon"><i class="fa fa-folder-o fa-4x"></i></div>
+                            <div class="dataContentName">文件夹</div>
+                        </div>
+                    </div>
+                    <div ng-if="listMode" class="dataList">
+                            <table class="table table-hover b-t b-light">
+                                <thead>
+                                <tr>
+                                    <th style="width:20px;">
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox"><i></i>
+                                        </label>
+                                    </th>
+                                    <th>名称</th>
+                                    <th>大小</th>
+                                    <th>版本号</th>
+                                    <th>修改日期</th>
+                                    <th>创建日期</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox"><i></i>
+                                        </label>
+                                    </td>
+                                    <td><i class="fa fa-file-excel-o"></i> Excel文件</td>
+                                    <td>10M</td>
+                                    <td>5</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>
+                                        <span class="dropdown">
+                                            <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></a>
+                                              <ul class="dropdown-menu pull-right">
+                                                    <li><a href="">打开</a></li>
+                                                    <li><a href="">内容转换</a></li>
+                                                    <li><a href="">执行</a></li>
+                                                    <li><a href="">历史版本</a></li>
+                                              </ul>
+                                        </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-cogs"></i></a>
+                                      <ul class="dropdown-menu pull-right">
+                                            <li><a href="">移动</a></li>
+                                            <li><a href="">复制</a></li>
+                                            <li><a href="">重命名</a></li>
+                                            <li><a href="">关联设置</a></li>
+                                            <li><a href="">类别设置</a></li>
+                                            <li><a href="">密级设置</a></li>
+                                            <li><a href="">共享文件</a></li>
+                                      </ul>
+                                </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-trash"></i></a>
+                                      <div class="dropdown-menu w pull-right">
+                                          <div class="remove btn-groups" style="margin: 0 10px -5px 10px;color: #58666e;">
+                                              <span>确定删除？ </span>
+                                              <button class="btn btn-primary btn-sm">删除</button>
+                                              <button class="btn btn-default btn-sm">取消</button>
+                                          </div>
+                                      </div>
+                                </span>
+                                        <a><i class="fa fa-star-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox"><i></i>
+                                        </label>
+                                    </td>
+                                    <td><i class="fa fa-file-word-o"></i> Word文件</td>
+                                    <td>10M</td>
+                                    <td>5</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>
+                                        <span class="dropdown">
+                                            <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></a>
+                                              <ul class="dropdown-menu pull-right">
+                                                    <li><a href="">打开</a></li>
+                                                    <li><a href="">内容转换</a></li>
+                                                    <li><a href="">执行</a></li>
+                                                    <li><a href="">历史版本</a></li>
+                                              </ul>
+                                        </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-cogs"></i></a>
+                                      <ul class="dropdown-menu pull-right">
+                                            <li><a href="">移动</a></li>
+                                            <li><a href="">复制</a></li>
+                                            <li><a href="">重命名</a></li>
+                                            <li><a href="">关联设置</a></li>
+                                            <li><a href="">类别设置</a></li>
+                                            <li><a href="">密级设置</a></li>
+                                            <li><a href="">共享文件</a></li>
+                                      </ul>
+                                </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-trash"></i></a>
+                                      <div class="dropdown-menu w pull-right">
+                                          <div class="remove btn-groups" style="margin: 0 10px -5px 10px;color: #58666e;">
+                                              <span>确定删除？ </span>
+                                              <button class="btn btn-primary btn-sm">删除</button>
+                                              <button class="btn btn-default btn-sm">取消</button>
+                                          </div>
+                                      </div>
+                                </span>
+                                        <a><i class="fa fa-star-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox"><i></i>
+                                        </label>
+                                    </td>
+                                    <td><i class="fa fa-file-pdf-o"></i> PDF文件</td>
+                                    <td>10M</td>
+                                    <td>5</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>
+                                        <span class="dropdown">
+                                            <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></a>
+                                              <ul class="dropdown-menu pull-right">
+                                                    <li><a href="">打开</a></li>
+                                                    <li><a href="">内容转换</a></li>
+                                                    <li><a href="">执行</a></li>
+                                                    <li><a href="">历史版本</a></li>
+                                              </ul>
+                                        </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-cogs"></i></a>
+                                      <ul class="dropdown-menu pull-right">
+                                            <li><a href="">移动</a></li>
+                                            <li><a href="">复制</a></li>
+                                            <li><a href="">重命名</a></li>
+                                            <li><a href="">关联设置</a></li>
+                                            <li><a href="">类别设置</a></li>
+                                            <li><a href="">密级设置</a></li>
+                                            <li><a href="">共享文件</a></li>
+                                      </ul>
+                                </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-trash"></i></a>
+                                      <div class="dropdown-menu w pull-right">
+                                          <div class="remove btn-groups" style="margin: 0 10px -5px 10px;color: #58666e;">
+                                              <span>确定删除？ </span>
+                                              <button class="btn btn-primary btn-sm">删除</button>
+                                              <button class="btn btn-default btn-sm">取消</button>
+                                          </div>
+                                      </div>
+                                </span>
+                                        <a><i class="fa fa-star-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox"><i></i>
+                                        </label>
+                                    </td>
+                                    <td><i class="fa fa-file-code-o"></i> 脚本文件</td>
+                                    <td>10M</td>
+                                    <td>5</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>
+                                        <span class="dropdown">
+                                            <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></a>
+                                              <ul class="dropdown-menu pull-right">
+                                                    <li><a href="">打开</a></li>
+                                                    <li><a href="">内容转换</a></li>
+                                                    <li><a href="">执行</a></li>
+                                                    <li><a href="">历史版本</a></li>
+                                              </ul>
+                                        </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-cogs"></i></a>
+                                      <ul class="dropdown-menu pull-right">
+                                            <li><a href="">移动</a></li>
+                                            <li><a href="">复制</a></li>
+                                            <li><a href="">重命名</a></li>
+                                            <li><a href="">关联设置</a></li>
+                                            <li><a href="">类别设置</a></li>
+                                            <li><a href="">密级设置</a></li>
+                                            <li><a href="">共享文件</a></li>
+                                      </ul>
+                                </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-trash"></i></a>
+                                      <div class="dropdown-menu w pull-right">
+                                          <div class="remove btn-groups" style="margin: 0 10px -5px 10px;color: #58666e;">
+                                              <span>确定删除？ </span>
+                                              <button class="btn btn-primary btn-sm">删除</button>
+                                              <button class="btn btn-default btn-sm">取消</button>
+                                          </div>
+                                      </div>
+                                </span>
+                                        <a><i class="fa fa-star-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox"><i></i>
+                                        </label>
+                                    </td>
+                                    <td><i class="fa fa-file-image-o"></i> 图片</td>
+                                    <td>10M</td>
+                                    <td>5</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>
+                                        <span class="dropdown">
+                                            <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></a>
+                                              <ul class="dropdown-menu pull-right">
+                                                    <li><a href="">打开</a></li>
+                                                    <li><a href="">内容转换</a></li>
+                                                    <li><a href="">执行</a></li>
+                                                    <li><a href="">历史版本</a></li>
+                                              </ul>
+                                        </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-cogs"></i></a>
+                                      <ul class="dropdown-menu pull-right">
+                                            <li><a href="">移动</a></li>
+                                            <li><a href="">复制</a></li>
+                                            <li><a href="">重命名</a></li>
+                                            <li><a href="">关联设置</a></li>
+                                            <li><a href="">类别设置</a></li>
+                                            <li><a href="">密级设置</a></li>
+                                            <li><a href="">共享文件</a></li>
+                                      </ul>
+                                </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-trash"></i></a>
+                                      <div class="dropdown-menu w pull-right">
+                                          <div class="remove btn-groups" style="margin: 0 10px -5px 10px;color: #58666e;">
+                                              <span>确定删除？ </span>
+                                              <button class="btn btn-primary btn-sm">删除</button>
+                                              <button class="btn btn-default btn-sm">取消</button>
+                                          </div>
+                                      </div>
+                                </span>
+                                        <a><i class="fa fa-star-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox"><i></i>
+                                        </label>
+                                    </td>
+                                    <td><i class="fa fa-file-audio-o"></i> 音频</td>
+                                    <td>10M</td>
+                                    <td>5</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>
+                                        <span class="dropdown">
+                                            <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></a>
+                                              <ul class="dropdown-menu pull-right">
+                                                    <li><a href="">打开</a></li>
+                                                    <li><a href="">内容转换</a></li>
+                                                    <li><a href="">执行</a></li>
+                                                    <li><a href="">历史版本</a></li>
+                                              </ul>
+                                        </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-cogs"></i></a>
+                                      <ul class="dropdown-menu pull-right">
+                                            <li><a href="">移动</a></li>
+                                            <li><a href="">复制</a></li>
+                                            <li><a href="">重命名</a></li>
+                                            <li><a href="">关联设置</a></li>
+                                            <li><a href="">类别设置</a></li>
+                                            <li><a href="">密级设置</a></li>
+                                            <li><a href="">共享文件</a></li>
+                                      </ul>
+                                </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-trash"></i></a>
+                                      <div class="dropdown-menu w pull-right">
+                                          <div class="remove btn-groups" style="margin: 0 10px -5px 10px;color: #58666e;">
+                                              <span>确定删除？ </span>
+                                              <button class="btn btn-primary btn-sm">删除</button>
+                                              <button class="btn btn-default btn-sm">取消</button>
+                                          </div>
+                                      </div>
+                                </span>
+                                        <a><i class="fa fa-star-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox"><i></i>
+                                        </label>
+                                    </td>
+                                    <td><i class="fa fa-file-video-o"></i> 视频</td>
+                                    <td>10M</td>
+                                    <td>5</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>
+                                        <span class="dropdown">
+                                            <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></a>
+                                              <ul class="dropdown-menu pull-right">
+                                                    <li><a href="">打开</a></li>
+                                                    <li><a href="">内容转换</a></li>
+                                                    <li><a href="">执行</a></li>
+                                                    <li><a href="">历史版本</a></li>
+                                              </ul>
+                                        </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-cogs"></i></a>
+                                      <ul class="dropdown-menu pull-right">
+                                            <li><a href="">移动</a></li>
+                                            <li><a href="">复制</a></li>
+                                            <li><a href="">重命名</a></li>
+                                            <li><a href="">关联设置</a></li>
+                                            <li><a href="">类别设置</a></li>
+                                            <li><a href="">密级设置</a></li>
+                                            <li><a href="">共享文件</a></li>
+                                      </ul>
+                                </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-trash"></i></a>
+                                      <div class="dropdown-menu w pull-right">
+                                          <div class="remove btn-groups" style="margin: 0 10px -5px 10px;color: #58666e;">
+                                              <span>确定删除？ </span>
+                                              <button class="btn btn-primary btn-sm">删除</button>
+                                              <button class="btn btn-default btn-sm">取消</button>
+                                          </div>
+                                      </div>
+                                </span>
+                                        <a><i class="fa fa-star-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox"><i></i>
+                                        </label>
+                                    </td>
+                                    <td><i class="fa fa-file-powerpoint-o"></i> PPT文件</td>
+                                    <td>10M</td>
+                                    <td>5</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>
+                                        <span class="dropdown">
+                                            <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></a>
+                                              <ul class="dropdown-menu pull-right">
+                                                    <li><a href="">打开</a></li>
+                                                    <li><a href="">内容转换</a></li>
+                                                    <li><a href="">执行</a></li>
+                                                    <li><a href="">历史版本</a></li>
+                                              </ul>
+                                        </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-cogs"></i></a>
+                                      <ul class="dropdown-menu pull-right">
+                                            <li><a href="">移动</a></li>
+                                            <li><a href="">复制</a></li>
+                                            <li><a href="">重命名</a></li>
+                                            <li><a href="">关联设置</a></li>
+                                            <li><a href="">类别设置</a></li>
+                                            <li><a href="">密级设置</a></li>
+                                            <li><a href="">共享文件</a></li>
+                                      </ul>
+                                </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-trash"></i></a>
+                                      <div class="dropdown-menu w pull-right">
+                                          <div class="remove btn-groups" style="margin: 0 10px -5px 10px;color: #58666e;">
+                                              <span>确定删除？ </span>
+                                              <button class="btn btn-primary btn-sm">删除</button>
+                                              <button class="btn btn-default btn-sm">取消</button>
+                                          </div>
+                                      </div>
+                                </span>
+                                        <a><i class="fa fa-star-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox"><i></i>
+                                        </label>
+                                    </td>
+                                    <td><i class="fa fa-file-text"></i> 一般文件</td>
+                                    <td>10M</td>
+                                    <td>5</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>
+                                        <span class="dropdown">
+                                            <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></a>
+                                              <ul class="dropdown-menu pull-right">
+                                                    <li><a href="">打开</a></li>
+                                                    <li><a href="">内容转换</a></li>
+                                                    <li><a href="">执行</a></li>
+                                                    <li><a href="">历史版本</a></li>
+                                              </ul>
+                                        </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-cogs"></i></a>
+                                      <ul class="dropdown-menu pull-right">
+                                            <li><a href="">移动</a></li>
+                                            <li><a href="">复制</a></li>
+                                            <li><a href="">重命名</a></li>
+                                            <li><a href="">关联设置</a></li>
+                                            <li><a href="">类别设置</a></li>
+                                            <li><a href="">密级设置</a></li>
+                                            <li><a href="">共享文件</a></li>
+                                      </ul>
+                                </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-trash"></i></a>
+                                      <div class="dropdown-menu w pull-right">
+                                          <div class="remove btn-groups" style="margin: 0 10px -5px 10px;color: #58666e;">
+                                              <span>确定删除？ </span>
+                                              <button class="btn btn-primary btn-sm">删除</button>
+                                              <button class="btn btn-default btn-sm">取消</button>
+                                          </div>
+                                      </div>
+                                </span>
+                                        <a><i class="fa fa-star-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox"><i></i>
+                                        </label>
+                                    </td>
+                                    <td><i class="fa fa-file-archive-o"></i> 压缩文件</td>
+                                    <td>10M</td>
+                                    <td>5</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>
+                                        <span class="dropdown">
+                                            <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></a>
+                                              <ul class="dropdown-menu pull-right">
+                                                    <li><a href="">打开</a></li>
+                                                    <li><a href="">内容转换</a></li>
+                                                    <li><a href="">执行</a></li>
+                                                    <li><a href="">历史版本</a></li>
+                                              </ul>
+                                        </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-cogs"></i></a>
+                                      <ul class="dropdown-menu pull-right">
+                                            <li><a href="">移动</a></li>
+                                            <li><a href="">复制</a></li>
+                                            <li><a href="">重命名</a></li>
+                                            <li><a href="">关联设置</a></li>
+                                            <li><a href="">类别设置</a></li>
+                                            <li><a href="">密级设置</a></li>
+                                            <li><a href="">共享文件</a></li>
+                                      </ul>
+                                </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-trash"></i></a>
+                                      <div class="dropdown-menu w pull-right">
+                                          <div class="remove btn-groups" style="margin: 0 10px -5px 10px;color: #58666e;">
+                                              <span>确定删除？ </span>
+                                              <button class="btn btn-primary btn-sm">删除</button>
+                                              <button class="btn btn-default btn-sm">取消</button>
+                                          </div>
+                                      </div>
+                                </span>
+                                        <a><i class="fa fa-star-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox"><i></i>
+                                        </label>
+                                    </td>
+                                    <td><i class="fa fa-folder-o"></i> 文件夹</td>
+                                    <td>10M</td>
+                                    <td>5</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>2018-11-11 11:11:11</td>
+                                    <td>
+                                        <span class="dropdown">
+                                            <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></a>
+                                              <ul class="dropdown-menu pull-right">
+                                                    <li><a href="">打开</a></li>
+                                                    <li><a href="">内容转换</a></li>
+                                                    <li><a href="">执行</a></li>
+                                                    <li><a href="">历史版本</a></li>
+                                              </ul>
+                                        </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-cogs"></i></a>
+                                      <ul class="dropdown-menu pull-right">
+                                            <li><a href="">移动</a></li>
+                                            <li><a href="">复制</a></li>
+                                            <li><a href="">重命名</a></li>
+                                            <li><a href="">关联设置</a></li>
+                                            <li><a href="">类别设置</a></li>
+                                            <li><a href="">密级设置</a></li>
+                                            <li><a href="">共享文件</a></li>
+                                      </ul>
+                                </span>
+                                        <span class="dropdown">
+                                    <a data-toggle="dropdown" aria-expanded="true"><i class="fa fa-trash"></i></a>
+                                      <div class="dropdown-menu w pull-right">
+                                          <div class="remove btn-groups" style="margin: 0 10px -5px 10px;color: #58666e;">
+                                              <span>确定删除？ </span>
+                                              <button class="btn btn-primary btn-sm">删除</button>
+                                              <button class="btn btn-default btn-sm">取消</button>
+                                          </div>
+                                      </div>
+                                </span>
+                                        <a><i class="fa fa-star-o"></i></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                    </div>
+
+                </div>
+                <button class="btn btn-default btn-block"><i class="fa fa-bars"></i> 加载更多数据</button>
+            </uib-tab>
+            <uib-tab>
+                <uib-tab-heading>
+                    <i class="glyphicon glyphicon-leaf"></i> 公共数据
+                </uib-tab-heading>
+                <div style="height: {{(app.clientHeight-80)+'px'}};">
+                    I've got an HTML heading, and a select callback. Pretty cool!
+                </div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>
+<style>
+
+    .dataOperation {
+        height: 20px;
+    }
+
+    .dataOperation .info {
+        margin: 10px 10px 0 10px;
+    }
+
+    .dataOperation .remove {
+        margin: 0 10px -5px 10px;
+    }
+
+    .dataContentFile {
+        margin-bottom: 20px;
+        width: 10%;
+        float: left;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .dataContentFile:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .dataContentIcon {
+    }
+
+    .dataContentName {
+        height: 20px;;
+        overflow: hidden;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+</style>

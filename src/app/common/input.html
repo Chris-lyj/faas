@@ -1,0 +1,239 @@
+<div class="padder" ng-controller="inputCtrl" ng-init="app.setTitle('信息页')">
+    <form name="form" novalidate>
+        <div class="row">
+            <div class="col-lg-8">
+                <h3 class="font-thin pull-left m-r-xs">输入</h3>
+                <small class="pull-left m-t-lg"> 样式基于<a href="https://v3.bootcss.com/css/#tables" target="_blank">bootstrap</a>，增加了<a
+                        target="_blank" href="https://angular-ui.github.io/bootstrap/#!#datepicker">ui-bootstrap</a> 和<a
+                        target="_blank" href="https://angular-ui.github.io/ui-select/">ui-select</a> 组件
+                </small>
+            </div>
+            <div class="col-lg-4">
+                <div class="btn-group m-t pull-right">
+                    <button ng-disabled="form.$invalid" type="button" class="btn btn-primary">
+                        提交
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="form-group" ng-class="{'has-error':form.email.$error.required||form.email.$error.email}">
+                    <label><i class="text-danger">*</i> 电子邮件 <i class="fa fa-question-circle" uib-popover="只能使用163邮箱"
+                                                                popover-trigger="'mouseenter'"></i></label>
+                    <small class="pull-right m-t-xxs text-danger" ng-show="form.email.$error.required">电子邮件必须填写</small>
+                    <small class="pull-right m-t-xxs text-danger" ng-show="form.email.$error.email">不符合电子邮件格式</small>
+                    <input type="email" class="form-control" name="email" autocomplete="off" ng-model="email" required>
+                </div>
+            </div>
+            <div class="col-lg-3" title="2-10位密码">
+                <div class="form-group"
+                     ng-class="{'has-error':form.password.$error.required||form.password.$error.minlength||form.password.$error.maxlength}">
+                    <label>密码：</label>
+                    <small class="pull-right m-t-xxs text-danger" ng-show="form.password.$error.required">密码必须填写</small>
+                    <small class="pull-right m-t-xxs text-danger" ng-show="form.password.$error.minlength">密码大于2个字符
+                    </small>
+                    <small class="pull-right m-t-xxs text-danger" ng-show="form.password.$error.maxlength">密码小于10个字符
+                    </small>
+                    <input type="password" class="form-control" name="password" ng-model="password" required
+                           ng-minlength="2" ng-maxlength="10">
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group"
+                     ng-class="{'has-error':form.number.$error.required||form.number.$error.number||form.number.$error.pattern}">
+                    <label>数字</label>
+                    <small class="pull-right m-t-xxs text-danger" ng-show="form.number.$error.required">数字必须填写</small>
+                    <small class="pull-right m-t-xxs text-danger" ng-show="form.number.$error.number">只能输入数字</small>
+                    <small class="pull-right m-t-xxs text-danger" ng-show="form.number.$error.pattern">只能输入1-99数字
+                    </small>
+                    <input type="number" name="number" ng-model="number" max="99" min="1" class="form-control" required
+                           ng-pattern="/(^[1-9]$)|(^[1-9]\d$)/">
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label>固定信息</label>
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="control-label">日期(ui-bootstrap)</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd"
+                               ng-model="date.selected"
+                               alt-input-formats="altInputFormats" is-open="date.opened"
+                               close-text="关闭" clear-text="清空" current-text="今天"/>
+                        <span class="input-group-btn">
+                        <button type="button" class="btn btn-default form-control" ng-click="openDate()"><i
+                                class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <label class="control-label">日期范围(ui-bootstrap)</label>
+                <div class="form-group">
+                    <div class="col-xs-5 no-padder">
+                        <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd"
+                               ng-model="date2.selected"
+                               alt-input-formats="altInputFormats" is-open="date2.opened"
+                               ng-click="date2.opened = !date2.opened"
+                               close-text="关闭" clear-text="清空" current-text="今天"/>
+                    </div>
+                    <label class="col-xs-2 no-padder m-t-xs text-center-xs"><i class="fa fa-minus"></i></label>
+                    <div class="col-xs-5 no-padder">
+                        <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd"
+                               ng-model="date3.selected"
+                               alt-input-formats="altInputFormats" is-open="date3.opened"
+                               ng-click="date3.opened = !date3.opened"
+                               close-text="关闭" clear-text="清空" current-text="今天"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <label class="control-label">时间(ui-bootstrap)</label>
+                <div class="form-group">
+                    <div uib-timepicker ng-model="time" show-spinners="false" show-seconds="true"
+                         show-meridian="ismeridian"></div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <label class="control-label">日期时间(ui-bootstrap)</label>
+                <div class="form-group">
+                    <div class="col-xs-7 no-padder">
+                    <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd"
+                           ng-model="date4.selected"
+                           alt-input-formats="altInputFormats" is-open="date4.opened"
+                           ng-click="date4.opened = !date4.opened"
+                           close-text="关闭" clear-text="清空" current-text="今天"/>
+                    </div>
+                    <div class="col-xs-5 no-padder">
+                    <div uib-timepicker ng-model="time1" show-spinners="false" show-meridian="ismeridian"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label>选项框(ui-select)</label>
+                    <input type="text" class="form-control hidden" name="uiSelect" ng-model="model.selected"
+                           required>
+                    <ui-select ng-model="model.selected" uis-open-close="openClose()"
+                               ng-class="{'has-error':form.uiSelect.$error.required}">
+                        <ui-select-match>{{$select.selected}}</ui-select-match>
+                        <ui-select-choices repeat="item in selectData | filter: $select.search">
+                            <div ng-bind-html="item"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label class="control-label">选项框(ui-select)</label>
+                    <input type="text" class="form-control hidden" name="uiSelect" ng-model="model.selected"
+                           required>
+                    <div class="input-group">
+                        <ui-select ng-model="model.selected" class="m-r-xxs"
+                                   ng-class="{'has-error':form.uiSelect.$error.required}">
+                            <ui-select-match>{{$select.selected}}</ui-select-match>
+                            <ui-select-choices repeat="item in selectData | filter: $select.search">
+                                <div ng-bind-html="item"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <span class="input-group-btn">
+                            <button ng-click="model.selected = undefined" class="btn btn-default form-control">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label>lov(ui-select)</label>
+                    <ui-select ng-model="selected" spinner-enabled="true">
+                        <ui-select-match>{{$select.selected.engine}}</ui-select-match>
+                        <ui-select-choices refresh="find($select.search)" refresh-delay="0" spinner-enabled="true"
+                                           repeat="item in datas | filter: {engine:$select.search}">
+                            <div ng-bind-html="item.engine | highlight: $select.search"></div>
+                            <small>
+                                browser:{{item.browser}}<br>
+                                platform:{{item.platform}}
+                            </small>
+                        </ui-select-choices>
+                        <ui-select-no-choice style="padding-left: 12px" ng-if="searchText">
+                            {{searchText}}
+                        </ui-select-no-choice>
+                    </ui-select>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="line b-b"></div>
+    <form name="form1" novalidate>
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-8">
+                <div class="btn-group m-t pull-right">
+                    <button ng-disabled="form1.$invalid" type="button" class="btn btn-primary">
+                        提交
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="col-xs-4 m-t-xs no-padder text-right-xs"><i class="text-danger">*</i> 电子邮件 <i
+                        class="fa fa-question-circle" uib-popover="只能使用163邮箱"
+                        popover-trigger="'mouseenter'"></i>：</label>
+                <div class="form-group col-xs-8 no-padder"
+                     ng-class="{'has-error':form1.email1.$error.required||form1.email1.$error.email}">
+                    <input type="email" class="form-control" name="email1" autocomplete="off" ng-model="email1"
+                           required>
+                </div>
+                <small class="pull-right m-t-n text-danger l-h-1x" ng-show="form1.email1.$error.required">电子邮件必须填写
+                </small>
+                <small class="pull-right m-t-n text-danger l-h-1x" ng-show="form1.email1.$error.email">不符合电子邮件格式</small>
+            </div>
+            <div class="col-lg-3" title="2-10位密码">
+                <label class="col-xs-3 m-t-xs no-padder text-right-xs">密码：</label>
+                <div class="form-group col-xs-9 no-padder"
+                     ng-class="{'has-error':form1.password1.$error.required||form1.password1.$error.minlength||form1.password1.$error.maxlength}">
+
+                    <input type="password" class="form-control" name="password1" ng-model="password1" required
+                           ng-minlength="2" ng-maxlength="10">
+                </div>
+                <small class="pull-right m-t-n text-danger l-h-1x" ng-show="form1.password1.$error.required">密码必须填写
+                </small>
+                <small class="pull-right m-t-n text-danger l-h-1x" ng-show="form1.password1.$error.minlength">密码大于2个字符
+                </small>
+                <small class="pull-right m-t-n text-danger l-h-1x" ng-show="form1.password1.$error.maxlength">密码小于10个字符
+                </small>
+            </div>
+            <div class="col-lg-3">
+                <label class="col-xs-3 m-t-xs no-padder text-right-xs">数字：</label>
+                <div class="form-group col-xs-9 no-padder"
+                     ng-class="{'has-error':form1.number1.$error.required||form1.number1.$error.number||form1.number1.$error.pattern}">
+                    <input type="number" name="number1" ng-model="number1" max="99" min="1" class="form-control"
+                           required
+                           ng-pattern="/(^[1-9]$)|(^[1-9]\d$)/">
+                </div>
+                <small class="pull-right m-t-n text-danger l-h-1x" ng-show="form1.number1.$error.required">数字必须填写
+                </small>
+                <small class="pull-right m-t-n text-danger l-h-1x" ng-show="form1.number1.$error.number">只能输入数字</small>
+                <small class="pull-right m-t-n text-danger l-h-1x" ng-show="form1.number1.$error.pattern">只能输入1-99数字
+                </small>
+            </div>
+            <div class="col-lg-3">
+                <label class="col-xs-3 m-t-xs no-padder text-right-xs">固定信息：</label>
+                <div class="form-group col-xs-9 no-padder">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-ng-app="app">
+<head>
+    <meta charset="utf-8"/>
+    <title>@@TITLE</title>
+    <meta name="description" content="@@DESCRIPTION"/>
+    <meta name="keywords" content="@@KEYWORDS"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <!-- @releaseCss libs/font-awesome/css/font-awesome.css -->
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.css" type="text/css"/>
+    <!-- endReleaseCss -->
+    <!-- @releaseCss libs/bootstrap/css/bootstrap.css -->
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css" type="text/css"/>
+    <!-- endReleaseCss -->
+    <!-- @releaseCss libs/jquery-loading/jquery.loading.min.css -->
+    <link rel="stylesheet" href="libs/jquery-loading/jquery.loading.min.css" type="text/css"/>
+    <!-- endReleaseCss -->
+    <!--<link rel="stylesheet" href="../bower_components/sweetalert/dist/sweetalert.css" type="text/css"/>-->
+    <!--<link rel="stylesheet" href="../bower_components/angular-ui-notification/dist/angular-ui-notification.css" type="text/css"/>-->
+    <!-- @releaseCss css/app.css -->
+    <!-- @build css/app.css -->
+    <link rel="stylesheet/less" type="text/css" href="css/app.less" />
+    <script type="text/javascript" src="libs/less/less.js"></script>
+    <!-- endBuild -->
+    <!-- endReleaseCss -->
+</head>
+<body ng-controller="appCtrl">
+<div class="app" id="app"
+     ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded}"
+     ui-view></div>
+<!-- jQuery -->
+<!-- @releaseJs libs/jquery/jquery.js -->
+<script src="libs/jquery/jquery.js"></script>
+<!-- endReleaseJs -->
+<!-- Bootstrap -->
+<!-- @releaseJs libs/bootstrap/js/bootstrap.js -->
+<script src="libs/bootstrap/js/bootstrap.js"></script>
+<!-- endReleaseJs -->
+<!-- Angular -->
+<!-- @releaseJs libs/angular/angular.js -->
+<script src="libs/angular/angular.js"></script>
+<!-- endReleaseJs -->
+<!-- @releaseJs libs/angular-cookies/angular-cookies.js -->
+<script src="libs/angular-cookies/angular-cookies.js"></script>
+<!-- endReleaseJs -->
+<!-- @releaseJs libs/angular-messages/angular-messages.js -->
+<script src="libs/angular-messages/angular-messages.js"></script>
+<!-- endReleaseJs -->
+<!-- @releaseJs libs/angular-resource/angular-resource.js -->
+<script src="libs/angular-resource/angular-resource.js"></script>
+<!-- endReleaseJs -->
+<!-- @releaseJs libs/angular-sanitize/angular-sanitize.js -->
+<script src="libs/angular-sanitize/angular-sanitize.js"></script>
+<!-- endReleaseJs -->
+<!-- @releaseJs libs/angular-ui-router/angular-ui-router.js -->
+<script src="libs/angular-ui-router/angular-ui-router.js"></script>
+<!-- endReleaseJs -->
+<!-- @releaseJs libs/ngstorage/ngStorage.js -->
+<script src="libs/ngstorage/ngStorage.js"></script>
+<!-- endReleaseJs -->
+<!--<script src="../bower_components/sweetalert/dist/sweetalert.min.js"></script>-->
+<!--<script src="../bower_components/ngSweetAlert/SweetAlert.js"></script>-->
+<!--<script src="../bower_components/angular-ui-notification/dist/angular-ui-notification.js"></script>-->
+<!-- bootstrap -->
+<!--<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>-->
+<!-- lazyload -->
+<!-- @releaseJs libs/oclazyload/ocLazyLoad.js -->
+<script src="libs/oclazyload/ocLazyLoad.js"></script>
+<!-- endReleaseJs -->
+<!-- translate -->
+<!-- @releaseJs libs/angular-translate/angular-translate.js -->
+<script src="libs/angular-translate/angular-translate.js"></script>
+<!-- endReleaseJs -->
+<!-- @releaseJs libs/angular-translate-loader-static-files/angular-translate-loader-static-files.js -->
+<script src="libs/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+<!-- endReleaseJs -->
+<!-- @releaseJs libs/angular-dynamic-locale/tmhDynamicLocale.js -->
+<script src="libs/angular-dynamic-locale/tmhDynamicLocale.js"></script>
+<!-- endReleaseJs -->
+<!-- @releaseJs libs/jquery-loading/jquery.loading.min.js -->
+<script src="libs/jquery-loading/jquery.loading.min.js"></script>
+<!-- endReleaseJs -->
+<!-- App -->
+<!-- @releaseJs app/config.js -->
+<script src="js/config.js"></script>
+<!-- endReleaseJs -->
+<!-- @releaseJs app/app.js -->
+<script src="js/config.lazyload.js"></script>
+<script src="js/config.router.js"></script>
+<script src="js/config.api.js"></script>
+<script src="js/config.menu.js"></script>
+<script src="js/main.js"></script>
+<script src="js/directives/ui-butterbar.js"></script>
+<script src="js/directives/ui-fullscreen.js"></script>
+<script src="js/directives/ui-nav.js"></script>
+<script src="js/directives/ui-jq.js"></script>
+<!--<script src="js/directives/ui-scroll-to.js"></script>-->
+<script src="js/directives/ui-toggleclass.js"></script>
+<!--<script src="js/filters/functionSearch.js"></script>-->
+<!-- endReleaseJs -->
+</body>
+</html>

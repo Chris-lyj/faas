@@ -1,0 +1,182 @@
+<div ng-controller="grantsCtrl" ng-init="app.setTitle('甘特图')">
+    <div class="padder m-t-xs">
+        <div id="toolBar">
+            <!--<div class="btn-group">-->
+                <!--<button ng-click="undo()" class="btn btn-default"><i class="fa fa-reply"></i> 撤回</button>-->
+                <!--<button ng-click="redo()" class="btn btn-default"><i class="fa fa-share"></i> 重做</button>-->
+            <!--</div>-->
+            <div class="btn-group">
+                <button ng-disabled="!ganttSelectedId" ng-click="taskUp()" class="btn btn-default"><i
+                        class="fa fa-arrow-up"></i> 上移
+                </button>
+                <button ng-disabled="!ganttSelectedId" ng-click="taskDown()" class="btn btn-default"><i
+                        class="fa fa-arrow-down"></i> 下移
+                </button>
+                <button ng-disabled="!ganttSelectedId" ng-click="upgrade()" class="btn btn-default"><i
+                        class="fa fa-level-up"></i> 升级
+                </button>
+                <button ng-disabled="!ganttSelectedId" ng-click="degrade()" class="btn btn-default"><i
+                        class="fa fa-level-down"></i> 降级
+                </button>
+                <button ng-disabled="!ganttSelectedId" ng-click="taskRelation()" class="btn btn-default"><i
+                        class="fa fa-sign-in"></i> 任务关系
+                </button>
+            </div>
+            <div class="btn-group">
+                <button ng-disabled="!ganttSelectedId" ng-click="milestone()" class="btn btn-default"><i
+                        class="fa fa-flag"></i> 里程碑
+                </button>
+                <button ng-disabled="!ganttSelectedId" ng-click="network()" class="btn btn-default"><i
+                        class="fa fa-sitemap"></i> 网络图
+                </button>
+                <button class="btn btn-default"><i class="fa fa-file-pdf-o"></i> 导出PDF</button>
+            </div>
+        </div>
+        <div id="ganttHere"
+             style="margin-top:5px; height: {{(app.clientHeight-100)+'px'}};"></div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="preTask.html">
+    <div class="modal-header" id="preTask-header">
+        <h4 class="modal-title">任务关系({{title}})<input type="text" ng-model="selected"
+                                                      typeahead-on-select="searchSelectedOn($item, $model, $label, $event)"
+                                                      uib-typeahead="task.text for task in tasks | filter:{text:$viewValue}"
+                                                      class="pull-right input-sm bg-light no-border rounded"
+                                                      placeholder="wbs&名称"></h4>
+    </div>
+    <div class="modal-body" id="preTask-body">
+        <table class="table table-bordered">
+            <tr ng-repeat="item in taskLinks track by $index" search-enabled="false" class="row m-b-xs">
+                <td class="v-middle">{{item.code}}</td>
+                <td class="v-middle">{{item.name}}</td>
+                <td class="w">
+                    <div class="w">
+                        <ui-select ng-model="item.type" uis-open-close="openClose()">
+                            <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                            <ui-select-choices repeat="item.value as item in taskType | filter: $select.search">
+                                <div ng-bind-html="item.name"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </td>
+                <td class="v-middle w-1x"><a ng-click="deleteLink($index)"><i class="fa fa-minus text-primary"></i></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+        <button class="btn" type="button" ng-click="$dismiss('cancel')">取消</button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="network.html">
+    <div class="modal-header" id="network-header">
+        <h4 class="modal-title">任务网络</h4>
+    </div>
+    <div class="modal-body" id="network-body">
+        <div id="myDiagramDiv" style="height:500px"></div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$close('close')">确定</button>
+        <button class="btn" type="button" ng-click="$dismiss('cancel')">取消</button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="task.html">
+    <div class="modal-header" id="task-header">
+        <h4 class="modal-title">任务修改</h4>
+    </div>
+    <div class="modal-body" id="task-body" ng-if="loaded">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label><i class="text-danger">*</i> 任务名称</label>
+                    <input type="text" class="form-control" name="taskName" autocomplete="off" ng-model="task.name">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label></label>
+                    <div class="checkbox">
+                        <label class="i-checks">
+                            <input type="checkbox" ng-model="task.type">
+                            <i></i>
+                            里程碑
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <!--<div class="col-lg-4">-->
+                <!--<div class="form-group">-->
+                    <!--<label><i class="text-danger">*</i> 任务类型</label>-->
+                    <!--<ui-select ng-model="task.type" uis-open-close="openClose()">-->
+                        <!--<ui-select-match>{{$select.selected.name}}</ui-select-match>-->
+                        <!--<ui-select-choices repeat="item.value as item in taskType | filter: $select.search">-->
+                            <!--<div ng-bind-html="item.name"></div>-->
+                        <!--</ui-select-choices>-->
+                    <!--</ui-select>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label><i class="text-danger">*</i> 开始时间</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-change="startTimeChange()"
+                               ng-model="task.startTime"
+                               alt-input-formats="altInputFormats" is-open="startTimeOpen"
+                               close-text="关闭" clear-text="清空" current-text="今天"/>
+                        <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="startTimeOpen=!startTimeOpen"><i
+                                class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label><i class="text-danger">*</i> 结束时间</label>
+                    <div class="input-group">
+                        <input ng-disabled="task.type"  type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-change="endTimeChange()"
+                               ng-model="task.endTime"
+                               alt-input-formats="altInputFormats" is-open="endTimeOpen"
+                               close-text="关闭" clear-text="清空" current-text="今天"/>
+                        <span class="input-group-btn">
+                        <button ng-disabled="task.type"  type="button" class="btn btn-default" ng-click="endTimeOpen=!endTimeOpen"><i
+                                class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label><i class="text-danger">*</i> 任务天数</label>
+                    <div class="input-group w-sm">
+                        <span class="input-group-btn">
+                        <button ng-disabled="task.type||!task.startTime" type="button" class="btn btn-default" ng-click="task.duration = task.duration-1"><i
+                                class="glyphicon glyphicon-minus"></i></button>
+                        </span>
+                        <input ng-disabled="task.type||!task.startTime" type="number" min="0" class="form-control" name="taskName" autocomplete="off"
+                               ng-model="task.duration">
+                        <span class="input-group-btn">
+                        <button ng-disabled="task.type||!task.startTime" type="button" class="btn btn-default" ng-click="task.duration = task.duration+1"><i
+                                class="glyphicon glyphicon-plus"></i></button>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-12">
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+        <button class="btn" type="button" ng-click="$dismiss('cancel')">取消</button>
+    </div>
+</script>

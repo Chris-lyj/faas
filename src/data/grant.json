@@ -1,0 +1,61 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "text": "计划任务1",
+      "start_date": "09-09-2018",
+      "end_date": "17-09-2018",
+      "open":true
+    },
+    {
+      "id": 2,
+      "text": "计划任务1-1",
+      "start_date": "09-09-2018",
+      "end_date": "15-09-2018",
+      "parent": 1
+    },
+    {
+      "id": 3,
+      "text": "计划任务1-2",
+      "start_date": "15-09-2018",
+      "end_date": "18-09-2018",
+      "parent": 1
+    },
+    {
+      "id": 4,
+      "text": "计划任务2",
+      "start_date": "12-09-2018",
+      "end_date": "31-09-2018",
+      "tree": true
+    },
+    {
+      "id": 5,
+      "text": "计划任务3",
+      "start_date": "28-09-2018",
+      "end_date": "18-10-2018",
+      "tree": true
+    },
+    {
+      "id": 6,
+      "text": "计划任务4",
+      "start_date": "10-10-2018",
+      "end_date": "28-10-2018",
+      "tree": true
+    },
+    {
+      "id": 7,
+      "text": "计划任务5",
+      "start_date": "10-10-2018",
+      "type":"milestone",
+      "tree": true
+    }
+  ],
+  "links": [
+    {
+      "id":1,
+      "source":1,
+      "target":2,
+      "type":0
+    }
+  ]
+}

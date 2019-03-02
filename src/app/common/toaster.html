@@ -1,0 +1,143 @@
+<div class="wrapper-md" ng-controller="toasterCtrl" ng-init="app.setTitle('提醒')">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>标题</label>
+                <input type="text" class="form-control" ng-model="tip.title">
+            </div>
+            <div class="form-group">
+                <label>内容</label>
+                <textarea class="form-control" rows="5"
+                          ng-model="tip.text"></textarea>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <label>提示类型</label>
+            <div class="radio">
+                <label class="i-checks">
+                    <input type="radio" name="toasts" ng-model="tip.type" value="success">
+                    <i></i>
+                    成功
+                </label>
+            </div>
+            <div class="radio">
+                <label class="i-checks">
+                    <input type="radio" name="toasts" ng-model="tip.type" value="info">
+                    <i></i>
+                    信息
+                </label>
+            </div>
+            <div class="radio">
+                <label class="i-checks">
+                    <input type="radio" name="toasts" ng-model="tip.type" value="warning">
+                    <i></i>
+                    警告
+                </label>
+            </div>
+            <div class="radio">
+                <label class="i-checks">
+                    <input type="radio" name="toasts" ng-model="tip.type" value="error">
+                    <i></i>
+                    错误
+                </label>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <label>通知类型</label>
+            <div class="radio">
+                <label class="i-checks">
+                    <input type="radio" name="notify" ng-model="no.type" value="primary">
+                    <i></i>
+                    主要
+                </label>
+            </div>
+            <div class="radio">
+                <label class="i-checks">
+                    <input type="radio" name="notify" ng-model="no.type" value="success">
+                    <i></i>
+                    成功
+                </label>
+            </div>
+            <div class="radio">
+                <label class="i-checks">
+                    <input type="radio" name="notify" ng-model="no.type" value="info">
+                    <i></i>
+                    信息
+                </label>
+            </div>
+            <div class="radio">
+                <label class="i-checks">
+                    <input type="radio" name="notify" ng-model="no.type" value="warning">
+                    <i></i>
+                    警告
+                </label>
+            </div>
+            <div class="radio">
+                <label class="i-checks">
+                    <input type="radio" name="notify" ng-model="no.type" value="danger">
+                    <i></i>
+                    错误
+                </label>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <label>模态框大小</label>
+            <div class="radio">
+                <label class="i-checks">
+                    <input type="radio" ng-model="size" value="lg">
+                    <i></i>
+                    大
+                </label>
+            </div>
+            <div class="radio">
+                <label class="i-checks">
+                    <input type="radio" ng-model="size" value="md" checked>
+                    <i></i>
+                    中
+                </label>
+            </div>
+            <div class="radio">
+                <label class="i-checks">
+                    <input type="radio" ng-model="size" value="sm">
+                    <i></i>
+                    小
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" ng-click="pop()">提示</button>
+    <button class="btn btn-primary" ng-click="notify()">通知</button>
+    <button class="btn btn-primary" ng-click="open()">模态框</button>
+
+    <script type="text/ng-template" id="custom.html">
+        <div class="form-group">
+            <label>标题</label>
+            <p class="form-control-static">内容</p>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="modal.html">
+        <div class="modal-header" id="modal-header">
+            <h3 class="modal-title">{{title}}</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            {{text}}
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+            <button class="btn" type="button" ng-click="cancel()">取消</button>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="custom_template.html">
+        <div class="ui-notification custom-template">
+            <h3>{{tip.title}}</h3>
+            <div class="message">{{tip.text}}</div>
+            <div class="message">
+                <button class="btn btn-{{no.type}} btn-xs m-b-xs close-notification pull-right" ng-click="close()">回复</button>
+            </div>
+        </div>
+    </script>
+
+</div>

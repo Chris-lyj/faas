@@ -1,0 +1,101 @@
+<!-- settings -->
+<button class="btn no-shadow pos-abt" ui-toggle-class="active" target=".settings">
+    <i class="fa fa-arrow-right"></i>
+</button>
+<div class="panel-heading">
+    设置
+</div>
+<div class="panel-body">
+    <div class="m-b-sm">
+        <label class="i-switch bg-primary pull-right">
+            <input type="checkbox" ng-model="app.settings.headerFixed">
+            <i></i>
+        </label>
+        固体导航栏
+    </div>
+    <div class="m-b-sm">
+        <label class="i-switch bg-primary pull-right">
+            <input type="checkbox" ng-model="app.settings.asideFixed">
+            <i></i>
+        </label>
+        固定菜单栏
+    </div>
+    <div class="m-b-sm">
+        <label class="i-switch bg-primary pull-right">
+            <input type="checkbox" ng-model="app.settings.asideFolded">
+            <i></i>
+        </label>
+        隐藏菜单栏
+    </div>
+</div>
+<div class="wrapper b-t b-light bg-light lter r-b">
+    <div class="row row-sm">
+        <div class="col-xs-6">
+            <label class="i-checks block m-b-sm" ng-click="
+          app.settings.navbarHeaderColor='bg-primary dk';
+          app.settings.navbarCollapseColor='bg-primary';
+          app.settings.asideColor='bg-black';
+         ">
+                <input type="radio" ng-model="app.settings.themeID" value="2">
+                <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-primary dk header"></b>
+            <b class="bg-primary header"></b>
+            <b class="bg-black"></b>
+          </span>
+            </label>
+
+            <label class="i-checks block m-b-sm" ng-click="
+          app.settings.navbarHeaderColor='bg-primary';
+          app.settings.navbarCollapseColor='bg-primary';
+          app.settings.asideColor='bg-white';
+         ">
+                <input type="radio" ng-model="app.settings.themeID" value="4">
+                <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-primary header"></b>
+            <b class="bg-primary header"></b>
+            <b class="bg-white"></b>
+          </span>
+            </label>
+        </div>
+        <div class="col-xs-6">
+            <label class="i-checks block m-b-sm" ng-click="
+          app.settings.navbarHeaderColor='bg-primary';
+          app.settings.navbarCollapseColor='bg-white';
+          app.settings.asideColor='bg-primary';
+         ">
+                <input type="radio" ng-model="app.settings.themeID" value="1">
+                <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-primary header"></b>
+            <b class="bg-white header"></b>
+            <b class="bg-primary"></b>
+          </span>
+            </label>
+
+            <label class="i-checks block m-b-sm" ng-click="
+          app.settings.navbarHeaderColor='bg-primary';
+          app.settings.navbarCollapseColor='bg-white';
+          app.settings.asideColor='bg-white';
+         ">
+                <input type="radio" ng-model="app.settings.themeID" value="3">
+                <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-primary header"></b>
+            <b class="bg-white header"></b>
+            <b class="bg-white"></b>
+          </span>
+            </label>
+        </div>
+    </div>
+</div>
+<!-- /settings -->

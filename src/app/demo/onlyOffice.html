@@ -1,0 +1,28 @@
+<div class="padder-md" ng-init="app.setTitle('onlyOffice')">
+    <iframe id="iframeScripts" class="hidden"
+            src="http://192.168.81.139:9000/web-apps/apps/api/documents/cache-scripts.html"></iframe>
+    <div ng-controller="onlyOfficeCtrl" class="row">
+        <div style="height: {{(app.clientHeight-50)+'px'}}" class="col-lg-9">
+            <div id="iframeEditor"></div>
+        </div>
+        <div class="form-inline col-lg-3" style="height: {{(app.clientHeght-50)+'px'}};overflow: auto;">
+            <input type="text" class="form-control">
+            <button class="btn btn-default form-control" ng-click="sendMessage();">自动输入</button>
+            <div class="r r-2x">
+                <!--<span ng-if="doing_async">...loading...</span>-->
+                <abn-tree
+                        tree-data="treeData"
+                        tree-control="tree"
+                        on-select="treeHandler(branch)"
+                        expand-level="2"
+                        icon-leaf="fa fa-file-o"
+                        icon-expand="fa fa-plus"
+                        icon-collapse="fa fa-minus"
+                >
+                </abn-tree>
+            </div>
+            <div ng-if="output" class="alert alert-info ng-binding">{{output}}</div>
+            <input id="copy" type="text" class="form-control" style="opacity: 0;position: absolute;">
+        </div>
+    </div>
+</div>

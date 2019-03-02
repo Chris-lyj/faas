@@ -1,0 +1,160 @@
+<!-- navbar header -->
+<div class="navbar-header {{app.settings.navbarHeaderColor}}">
+    <!--<button class="pull-right visible-xs" ui-toggle-class="show" data-target=".navbar-collapse">-->
+    <!--<i class="glyphicon glyphicon-cog"></i>-->
+    <!--</button>-->
+    <!--<button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside" ui-scroll-to="app">-->
+    <!--<i class="glyphicon glyphicon-align-justify"></i>-->
+    <!--</button>-->
+    <!-- brand -->
+    <a ui-sref="app" ng-click="app.setTitle('主页')" class="navbar-brand text-white">
+        <!--<i class="fa fa-space-shuttle"></i>-->
+        <img src="img/trustxin.jpg">
+        <span class="hidden-folded text-white" translate="appName">{{app.name}}</span>
+    </a>
+    <!-- / brand -->
+</div>
+<!-- / navbar header -->
+
+<!-- navbar collapse -->
+<div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+    <!-- buttons -->
+    <div class="nav navbar-nav hidden-xs">
+        <a href class="btn no-shadow navbar-btn" ng-click="app.menuToggle()">
+            <i class="fa {{app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i>
+        </a>
+
+    </div>
+
+    <!-- search form -->
+    <form class="navbar-form navbar-form-sm navbar-left">
+        <div class="form-group">
+            <div class="input-group dropdown">
+                <input id="appSearch" autocomplete="off" type="text" ng-model="app.searchSelected"
+                       class="form-control input-sm bg-light no-border rounded" placeholder="站内搜索">
+                <a ng-if="app.searchSelected" ng-click="app.searchClearText()"
+                   style="position:absolute;top: 5px;color: #58666e;right: 10px;z-index: 3" href><i
+                        class="fa fa-times-circle"></i></a>
+                <div class="dropdown pull-left m-r" style="position: absolute;top: 30px" ng-if="app.menuSearchs.length>0">
+                    <ul class="dropdown-menu pos-stc inline">
+                        <li ng-repeat="menu in app.menuSearchs track by $index">
+                            <a ui-sref="{{menu.link}}" ng-click="app.menuSearchs=[]">{{menu.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- / search form -->
+
+    <!-- nabar right -->
+    <ul class="nav navbar-nav navbar-right">
+        <li ng-if="app.historys.length>1" class="hidden-sm" is-open="app.historys.isopen">
+            <a href class="dropdown-toggle" data-toggle="dropdown">
+                {{app.historys[0].title}} <b class="caret"></b>
+            </a>
+            <!-- dropdown -->
+            <ul class="dropdown-menu">
+                <li ng-repeat="item in app.historys track by $index">
+                    <a ng-if="$index>0&&$index<20" ng-click="app.toHistory(item)" href>{{item.title}}</a>
+                </li>
+            </ul>
+            <!-- / dropdown -->
+        </li>
+        <li class="hidden-sm dropdown" is-open="app.lang.isopen">
+            <a href class="dropdown-toggle" data-toggle="dropdown">
+                {{app.selectedLang}} <b class="caret"></b>
+            </a>
+            <!-- dropdown -->
+            <ul class="w dropdown-menu">
+                <li ng-repeat="(langKey, label) in app.langs">
+                    <a ng-click="app.setLang(langKey, $event)" href>{{label}}</a>
+                </li>
+            </ul>
+            <!-- / dropdown -->
+        </li>
+        <li class="hidden-xs">
+            <a ui-fullscreen></a>
+        </li>
+        <li>
+            <a href>
+                <i class="fa fa-comments"></i>
+                <span class="badge badge-sm up bg-danger pull-right-xs">100</span>
+            </a>
+        </li>
+
+        <li class="dropdown">
+            <a href class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-bell"></i>
+                <span class="visible-xs-inline">通知</span>
+                <span class="badge badge-sm up bg-danger pull-right-xs">2</span>
+            </a>
+            <!-- dropdown -->
+            <div class="w-xl dropdown-menu">
+                <div class="panel">
+                    <div class="list-group clear">
+                        <a href class="list-group-item">
+                    <span class="block m-b-none text-muted">
+                      文档编写通知<br>
+                      <small>10分钟前</small>
+                    </span>
+                        </a>
+                        <a href class="list-group-item">
+                    <span class="block m-b-none text-muted">
+                      任务已经开始<br>
+                      <small>1小时前</small>
+                    </span>
+                        </a>
+                    </div>
+                    <div class="panel-footer text-sm">
+                        <a href class="pull-right"><i class="fa fa-cog text-muted"></i></a>
+                        <a href><span class="text-muted">查看全部通知</span></a>
+                    </div>
+                </div>
+            </div>
+            <!-- / dropdown -->
+        </li>
+        <li class="dropdown">
+            <a href class="clear dropdown-toggle" data-toggle="dropdown">
+                <!--<span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">-->
+                <!--<img src="img/a0.jpg" alt="...">-->
+                <!--<i class="on md b-white bottom"></i>-->
+                <!--</span>-->
+                <span class="hidden-sm hidden-md">陆允基</span> <b class="caret"></b>
+            </a>
+            <!-- dropdown -->
+            <ul class="w dropdown-menu">
+                <!--<li class="wrapper b-b m-b-sm bg-light m-t-n-xs">-->
+                <!--<div>-->
+                <!--<p>存储已用300M/500M</p>-->
+                <!--</div>-->
+                <!--<progressbar value="60" class="progress-xs m-b-none bg-white"></progressbar>-->
+                <!--</li>-->
+                <li>
+                    <a ui-toggle-class="active" target=".settings">
+                        <!--<span class="badge bg-danger pull-right">30%</span>-->
+                        <span>设置</span>
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="app.page.profile">个人主页</a>
+                </li>
+                <li>
+                    <a ui-sref="app.docs">
+                        <span class="label bg-primary pull-right text-white">new</span>
+                        帮助文档
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a ui-sref="access.signin">注销</a>
+                </li>
+            </ul>
+            <!-- / dropdown -->
+        </li>
+    </ul>
+    <!-- / navbar right -->
+</div>
+<!-- / navbar collapse -->
+<div ui-butterbar class="{{app.settings.navbarHeaderColor}} butterbar hide"></div>
+

@@ -1,0 +1,52 @@
+<div class="aside-wrap">
+    <div class="navi-wrap">
+        <!-- nav -->
+        <nav ui-nav class="navi">
+            <ul class="nav">
+                <li ng-repeat="menu in app.menus" ui-sref-active="active" ng-class="{'active':menu.actived}" >
+                    <a ng-class="{'linked':menu.linked}" title="{{menu.name}}" ui-sref="{{menu.link}}" class="auto" ng-if="app.authorized(menu.authority)&&(menu.link!=undefined&&menu.link!='')">
+                        <i class="{{menu.icon}}"></i>
+                        <span>{{menu.name}}</span>
+                    </a>
+                    <a class="auto" ng-class="{'actived':menu.actived}" title="{{menu.name}}"  ng-if="app.authorized(menu.authority)&&(menu.link==undefined||menu.link=='')">
+                        <span class="pull-right" ng-if="menu.list.length > 0">
+                            <i class="fa fa-fw fa-angle-right text"></i>
+                            <i class="fa fa-fw fa-angle-down text-active"></i>
+                        </span>
+                        <i class="{{menu.icon}}"></i>
+                        <span>{{menu.name}}</span>
+                    </a>
+                    <ul class="nav nav-sub dk" ng-if="menu.list.length > 0">
+                        <li ui-sref-active="active" ng-repeat="menu1 in menu.list" ng-class="{'active':menu1.actived}">
+                            <a ng-class="{'linked':menu1.linked}" title="{{menu1.name}}"  ui-sref="{{menu1.link}}" class="auto" ng-if="app.authorized(menu1.authority)&&(menu1.link!=undefined&&menu1.link!='')">
+                                <i class="{{menu1.icon}}"></i>
+                                <span>{{menu1.name}}</span>
+                            </a>
+                            <a class="auto" ng-class="{'actived':menu1.actived}" title="{{menu1.name}}" ng-if="app.authorized(menu1.authority)&&(menu1.link==undefined||menu1.link=='')">
+                                <span class="pull-right" ng-if="menu1.list.length > 0">
+                                    <i class="fa fa-fw fa-angle-right text"></i>
+                                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                                </span>
+                                <i class="{{menu1.icon}}"></i>
+                                <span>{{menu1.name}}</span>
+                            </a>
+                            <ul class="nav dker" ng-if="menu1.list.length > 0">
+                                <li ui-sref-active="active" ng-repeat="menu2 in menu1.list">
+                                    <a ng-class="{'linked':menu2.linked}" title="{{menu2.name}}" ui-sref="{{menu2.link}}" class="auto" ng-if="app.authorized(menu2.authority)&&(menu2.link!=undefined&&menu2.link!='')">
+                                        <i class="{{menu2.icon}}"></i>
+                                        <span>{{menu2.name}}</span>
+                                    </a>
+                                    <a ng-if="app.authorized(menu2.authority)&&(menu2.link==undefined||menu2.link=='')" title="{{menu2.name}}" class="auto">
+                                        <i class="{{menu2.icon}}"></i>
+                                        <span>{{menu2.name}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- nav -->
+    </div>
+</div>

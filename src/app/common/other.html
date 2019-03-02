@@ -1,0 +1,170 @@
+<div class="wrapper-md" ng-controller="otherCtrl" ng-init="app.setTitle('其他')">
+    <div class="pieBg">
+        <div class="pie" style="{{getStyle(rate)}}">
+        </div>
+        <span>{{rate}}%</span>
+    </div>
+    <div class="row" style="height: 100px">
+        <div class="col-lg-5">
+            <div class="table-responsive" style="overflow: auto; max-height: 100px;">
+                <table class="table table-hover text-nowrap table-condensed"
+                       style="background-color: #fff;margin-bottom: 0;">
+                    <thead fix-head>
+                    <tr>
+                        <th class="w-1x">
+                            <label class="i-checks i-checks-sm m-b-none">
+                                <input type="checkbox" ng-click="checkAll(datas,datasSelectFlag)"
+                                       ng-model="datasSelectFlag">
+                                <i></i>
+                            </label>
+                        </th>
+                        <th>{{datas.length?datas.length:0}}项</th>
+                        <th class="text-right-xs">待选参数</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in datas track by $index">
+                        <td>
+                            <label class="i-checks i-checks-sm">
+                                <input type="checkbox" ng-model="data.selected">
+                                <i></i>
+                            </label>
+                        </td>
+                        <td>{{data.name}}</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-2" style="height: 100px;text-align: center">
+            <button ng-click="pullOut()" class="btn btn-sm btn-icon btn-info" style=" position: relative;top: 50%;"><i
+                    class="glyphicon glyphicon-chevron-left"></i></button>
+            <button ng-click="pushIn()" class="btn btn-sm btn-icon btn-info" style=" position: relative;top: 50%;"><i
+                    class="glyphicon glyphicon-chevron-right"></i></button>
+        </div>
+        <div class="col-lg-5">
+            <div class="table-responsive" style="overflow: auto; max-height: 100px;">
+                <table class="table table-hover text-nowrap table-condensed"
+                       style="background-color: #fff;margin-bottom: 0;">
+                    <thead fix-head>
+                    <tr>
+                        <th class="w-1x">
+                            <label class="i-checks i-checks-sm m-b-none">
+                                <input type="checkbox" ng-model="dataSelectSelectedFlag"
+                                       ng-click="checkAll(dataSelect,dataSelectSelectedFlag)">
+                                <i></i>
+                            </label>
+                        </th>
+                        <th>{{dataSelect.length?dataSelect.length:0}}项</th>
+                        <th class="text-right-xs">已选参数</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in dataSelect track by $index">
+                        <td>
+                            <label class="i-checks i-checks-sm">
+                                <input type="checkbox" ng-model="data.selected">
+                                <i></i>
+                            </label>
+                        </td>
+                        <td>{{data.name}}</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .pieBg {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #FFFFFF;
+        border: solid 3px #23b7e5;
+        background-image: linear-gradient(to right, transparent 50%, #23b7e5 0);
+    linear-gradient(to left, transparent 50 %, #23b7e5 0);
+        text-align: center;
+    }
+
+    .pieBg span {
+        position: relative;
+        top: -58px;
+    }
+
+    .pie {
+        content: '';
+        display: block;
+        margin-left: 50%;
+        height: 100%;
+        border-radius: 0 100% 100% 0/50%;
+        background-color: inherit;
+        transform-origin: left;
+    }
+</style>
+<script>
+    app.controller('otherCtrl', ['$scope', function ($scope) {
+        $scope.rate = 77;
+        $scope.getStyle = function (rate) {
+            if (rate > 0 && rate <= 50) {
+                return 'transform:rotate(' + 3.6 * rate + 'deg)';
+            } else if (rate > 50 && rate <= 100) {
+                return 'transform:rotate(' + ((3.6 * rate) - 180) + 'deg);' + 'background-color:#23b7e5;'
+            }
+        }
+        $scope.datas = [{
+            name: '111111111',
+            id: 1
+        }, {
+            name: '22222222',
+            id: 2
+        }, {
+            name: '33333',
+            id: 3
+        }, {
+            name: '444444',
+            id: 4
+        }, {
+            name: '55555555555555555',
+            id: 5
+        }
+        ];
+        $scope.dataSelect = [];
+        $scope.pushIn = function () {
+            for (var i = 0; i < $scope.datas.length; i++) {
+                if ($scope.datas[i].selected) {
+                    $scope.dataSelect.push($scope.datas[i]);
+                    $scope.datas[i].selected = undefined;
+                    $scope.datas.splice(i, 1);
+                    i--;
+                }
+            }
+            $scope.datasSelectFlag = false
+        };
+        $scope.pullOut = function () {
+            for (var i = j = 0; i < $scope.dataSelect.length; i++) {
+                if ($scope.dataSelect[i].selected) {
+                    $scope.datas.splice(j, 0, $scope.dataSelect[i]);
+                    j++
+                    $scope.dataSelect[i].selected = undefined;
+                    $scope.dataSelect.splice(i, 1);
+                    i--;
+                }
+            }
+            $scope.dataSelectSelectedFlag = false
+        };
+        $scope.checkAll = function (datas, flag) {
+            if (!flag) {
+                angular.forEach(datas, function (item) {
+                    item.selected = true
+                })
+            } else {
+                angular.forEach(datas, function (item) {
+                    item.selected = false
+                })
+            }
+        }
+    }]);
+</script>

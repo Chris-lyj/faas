@@ -1,0 +1,95 @@
+<div ng-controller="tableCtrl1" ng-init="app.setTitle('下滑表格')">
+    <div class="padder">
+        <div class="row m-b-sm">
+            <div class="col-lg-7">
+                <h3 class="font-thin pull-left m-r-xs">下滑表格</h3>
+                <small class="pull-left m-t-lg">本表格样式页基于<a href="https://v3.bootcss.com/css/#tables" target="_blank">bootstrap</a>和fixhead，另附加一系列相关操作
+                </small>
+            </div>
+            <div class="col-lg-5">
+                <div class="btn-group m-t pull-right">
+                    <p class="pull-left m-t-sm m-r-sm text-danger">{{message}}</p>
+                    <button ng-disabled="load" ng-init="load=false" type="button" class="btn btn-primary"
+                            ng-click="search()"><i ng-show="!load" class="fa fa-fw fa-search text"></i><i ng-show="load"
+                                                                                                          class="fa fa-fw fa-circle-o-notch fa-spin"></i>搜索
+                    </button>
+                    <button type="button" class="btn btn-default" ng-click="engine=undefined"><i
+                            class="fa fa-fw fa-trash"></i>清空
+                    </button>
+                    <button type="button" class="btn btn-default" ng-click="searchShowFuc()">
+                        <i class="fa fa-angle-double-up text" ng-show="searchShow"> 收起</i><i
+                            class="fa fa-angle-double-down text"
+                            ng-show="!searchShow"> 展开</i>
+                    </button>
+                    <button class="btn btn-default" data-toggle="dropdown" aria-expanded="false">更多操作 <span
+                            class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="">删除</a></li>
+                        <li><a href="">新增</a></li>
+                        <li><a href="">修改</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">失效</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div ng-show="searchShow" class="m-b-sm row">
+            <div class="form-inline">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <label class="control-label">引擎:</label>
+                        <input type="text" class="form-control" ng-model="engine">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive" id="datas">
+        <table class="table table-hover">
+            <thead fix-head>
+            <tr>
+                <th class="w-1x"></th>
+                <th style="cursor: pointer" ng-click="sort('engine')">引擎<i ng-if="table.sort.engine=='desc'"
+                                                                           class="glyphicon glyphicon-sort-by-attributes-alt pull-right m-t-xxs"></i><i
+                        ng-if="table.sort.engine=='asc'"
+                        class="glyphicon glyphicon-sort-by-attributes pull-right m-t-xxs"></i></th>
+                <th>浏览器</th>
+                <th>操作系统</th>
+                <th style="cursor: pointer" ng-click="sort('version')">生存期<i ng-if="table.sort.version=='desc'"
+                                                                             class="glyphicon glyphicon-sort-by-attributes-alt pull-right m-t-xxs"></i><i
+                        ng-if="table.sort.version=='asc'"
+                        class="glyphicon glyphicon-sort-by-attributes pull-right m-t-xxs"></i></th>
+                <th style="cursor: pointer" ng-click="sort('grade')">等级<i ng-if="table.sort.grade=='desc'"
+                                                                          class="glyphicon glyphicon-sort-by-attributes-alt pull-right m-t-xxs"></i><i
+                        ng-if="table.sort.grade=='asc'"
+                        class="glyphicon glyphicon-sort-by-attributes pull-right m-t-xxs"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-click="check(data)"
+                ng-repeat="data in (datas | orderBy:order.name:order.reserved | filter:{engine:engine}) track by $index">
+                <td>
+                    <label class="i-checks i-checks-sm">
+                        <input type="checkbox" ng-model="data.selected" ng-click="check(data)">
+                        <i></i>
+                    </label>
+                </td>
+                <td>{{data.engine}}</td>
+                <td>{{data.browser}}</td>
+                <td>{{data.platform}}</td>
+                <td>{{data.version}}</td>
+                <td>{{data.grade}}</td>
+            </tr>
+            <tr>
+                <td colspan="7">
+                    <div style="width: 100%;text-align: center"><a ng-show="!load" title="加载更多数据" ng-click="loadData()"><i
+                            class="fa fa-align-justify fa-fw"></i>
+                        加载更多数据</a>
+                        <a ng-show="load"><i class="fa fa-fw fa-circle-o-notch fa-spin"></i> 正在加载数据</a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
