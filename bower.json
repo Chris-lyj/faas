@@ -1,0 +1,84 @@
+{
+  "name": "fas-web-bower",
+  "authors": [
+    "Chris"
+  ],
+  "description": "致力于工程化快速开发，前端应用组件化框架，管理项目依赖",
+  "keywords": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "^1.7.5",
+    "angular-cookies": "^1.7.5",
+    "angular-messages": "^1.7.5",
+    "angular-resource": "^1.7.5",
+    "angular-sanitize": "^1.7.5",
+    "angular-bootstrap": "^2.5.0",
+    "jquery": "^3.3.1",
+    "bootstrap": "3.3.7",
+    "font-awesome": "4.7.0",
+    "angular-ui-router": "^1.0.20",
+    "ngstorage": "^0.3.11",
+    "oclazyload": "^1.1.0",
+    "angular-translate": "^2.18.1",
+    "angular-translate-loader-static-files": "^2.18.1",
+    "screenfull": "^3.3.3",
+    "angular-bootstrap-nav-tree": "*",
+    "echarts": "^4.1.0",
+    "gantt": "^5.2.0",
+    "angular-toastr": "^2.1.1",
+    "angular-ui-select": "^0.19.8",
+    "angular-dynamic-locale": "^0.1.37",
+    "angular-ui-calendar": "^1.0.1",
+    "fullcalendar": "^3.9.0",
+    "jquery-loading": "^1.3.0",
+    "angular-fixed-table-header": "^0.2.1",
+    "angular-i18n": "^1.7.5",
+    "gojs": "^1.8.34",
+    "ngSweetAlert": "^1.1.3",
+    "angular-ui-notification": "^0.3.6",
+    "angular-file-upload": "^2.5.0",
+    "ng-img-crop": "^0.3.2",
+    "nestable": "*",
+    "html5sortable": "*",
+    "viewerjs": "viewerjs-image#^1.3.2"
+  },
+  "exportsOverride": {
+    "bootstrap": {
+      "fonts": "dist/fonts/*.*",
+      "css": "dist/css/bootstrap.css",
+      "js": "dist/js/bootstrap.js"
+    },
+    "echarts": {
+      "": "dist/echarts.js"
+    },
+    "font-awesome": {
+      "fonts": "fonts/*.*",
+      "css": "css/font-awesome.css"
+    },
+    "nestable": {
+      "": "jquery.nestable.js"
+    },
+    "screenfull": {
+      "": "dist/screenfull.js"
+    },
+    "viewerjs": {
+      "": [
+        "dist/viewer.css",
+        "dist/viewer.js"
+      ]
+    },
+    "angular-i18n": {
+      "": [
+        "angular-locale_zh-cn.js",
+        "angular-locale_en.js"
+      ]
+    }
+  },
+  "devDependencies": {
+    "less": "^3.9.0"
+  }
+}
